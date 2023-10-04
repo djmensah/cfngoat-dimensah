@@ -15,26 +15,10 @@ jobs:
           fetch-depth: 0
       - name: Run yor action
         uses: bridgecrewio/yor-action@main
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v1
+      - name: Run Prisma Cloud 
+        id: prisma-cloud
+        uses: bridgecrewio/checkov-action@master 
+        env:
+          PRISMA_API_URL: https://api.prismacloud.io
         with:
-          python-version: ${{ matrix.python-version }}
-      - name: Update documentation
-        run: |
-          git config --local user.email "daryl-mensah@outlook.com"
-          git config --local user.name "djmensah"
-          git fetch --tags
-          git pull
-
-          latest_tag=$(git describe --tags `git rev-list --tags --max-count=1`)
-          echo "latest tag: $latest_tag"
-          new_tag=$(echo $latest_tag | awk -F. -v a="$1" -v b="$2" -v c="$3" '{printf("%d.%d.%d", $1+a, $2+b , $3+1)}')
-          echo "new tag: $new_tag"
-
-          pip3 install -U checkov
-          cat .github/template.md > README.md && checkov -d . -o github_failed_only -s >> README.md
-          git add README.md  || echo "No changes to commit"
-          git commit -m "update resource scan result doc" README.md || echo "No changes to commit"
-          git push origin
-          git tag $new_tag
-          git push origin $new_tag
+          api-key: ${{ secrets.BC_API_KEY }}
