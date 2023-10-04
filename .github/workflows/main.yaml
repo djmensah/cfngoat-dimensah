@@ -1,21 +1,23 @@
-name: checkov-scan
+---
+name: Checkov
 on:
-  # Trigger the workflow on push or pull request,
-  # but only for the master branch
   push:
-    branches:
-      - master
-  pull_request:
     branches:
       - master
 jobs:
   build:
+
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [3.7]
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-      - name: Checkov Github Action
-        uses: bridgecrewio/checkov-action@v5
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.8
+      - name: Test with Checkov
+        id: checkov
+        uses: bridgecrewio/checkov-action@master
+        env:
+          PRISMA_API_URL: https://api.prismacloud.io        
+        with:
+          api-key: ${{ secrets.BC_API_KEY }
