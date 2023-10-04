@@ -19,7 +19,6 @@ jobs:
         uses: bridgecrewio/checkov-action@master
         env:
           PRISMA_API_URL: https://api.prismacloud.io        
-        directory: djmensah/demotest3
         framework: terraform 
         with:
           api-key: ${{ secrets.BC_API_KEY }
