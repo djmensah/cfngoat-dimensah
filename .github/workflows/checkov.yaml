@@ -1,15 +1,5 @@
-name: build
-on:
-  push:
-    branches:
-      - master
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [3.7]
-    steps:
+   steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
