@@ -88,6 +88,8 @@ Resources:
           Value: e672877b-726b-4bb5-bb27-f7e8edb7613e
         - Key: yor_name
           Value: VPC
+        - Key: git_org
+          Value: djmensah
   InternetGateway:
     Type: "AWS::EC2::InternetGateway"
     Properties:
@@ -98,6 +100,8 @@ Resources:
           Value: c4e86b57-aa6a-4ff4-bef0-35905cc87db7
         - Key: yor_name
           Value: InternetGateway
+        - Key: git_org
+          Value: djmensah
   VPCGatewayAttachment:
     Type: "AWS::EC2::VPCGatewayAttachment"
     Properties:
@@ -116,6 +120,8 @@ Resources:
           Value: 99369f84-ea70-403b-91b1-1298c1d9b826
         - Key: yor_name
           Value: PublicRouteTable
+        - Key: git_org
+          Value: djmensah
   PrivateRouteTable01:
     Type: AWS::EC2::RouteTable
     Properties:
@@ -124,7 +130,7 @@ Resources:
         - Key: Name
           Value: Private Subnet AZ1
         - Key: Network
-          Value: Private01
+          Value: djmensah
         - Key: git_org
           Value: bridgecrewio
         - Key: git_repo
@@ -165,7 +171,7 @@ Resources:
         - Key: git_last_modified_by
           Value: nimrodkor@gmail.com
         - Key: yor_trace
-          Value: 4e1da555-6cc5-42c8-a75f-6e8abd1cc1f1
+          Value: djmensah
         - Key: git_org
           Value: bridgecrewio
         - Key: yor_name
@@ -212,6 +218,8 @@ Resources:
           Value: 9a63423c-9c6e-4467-8a1e-b1fd9029281d
         - Key: yor_name
           Value: NatGateway01
+        - Key: git_org
+          Value: djmensah
   NatGateway02:
     DependsOn:
     - NatGatewayEIP2
@@ -237,7 +245,7 @@ Resources:
         - Key: git_last_modified_by
           Value: nimrodkor@gmail.com
         - Key: yor_trace
-          Value: fb5ac0c1-ebb5-48dd-beab-2f6658041e52
+          Value: djmensah
         - Key: git_org
           Value: bridgecrewio
         - Key: yor_name
@@ -313,6 +321,8 @@ Resources:
           Value: 7c34a299-7166-44a5-8ce5-09c8c9beca84
         - Key: yor_name
           Value: PublicSubnet01
+        - Key: git_org
+          Value: djmensah
   PublicSubnet02:
     Type: AWS::EC2::Subnet
     Metadata:
@@ -372,7 +382,7 @@ Resources:
         - Key: git_last_modified_by
           Value: nimrodkor@gmail.com
         - Key: yor_trace
-          Value: f62acb0d-f3e7-4892-b4c1-dac384b433b1
+          Value: djmensah
         - Key: git_org
           Value: bridgecrewio
         - Key: git_repo
@@ -415,7 +425,7 @@ Resources:
         - Key: git_last_modified_by
           Value: nimrodkor@gmail.com
         - Key: yor_trace
-          Value: 76d2fd72-a2b2-4576-885b-2cf64d6b1d31
+          Value: djmensah
         - Key: git_org
           Value: bridgecrewio
         - Key: git_repo
